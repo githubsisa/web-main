@@ -1,0 +1,652 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: auto;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #e68a00;
+    border-radius: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 0.2rem 0.5rem;
+}
+
+.search-bar input {
+    border: none;
+    padding: 0.5rem;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: rgb(255, 165, 0);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #e68a00;
+}
+
+/* Icons Section */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+}
+
+.icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.icons a:hover {
+    color: #e68a00;
+}
+
+.icons i {
+    margin-right: 5px;
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 150px; /* Adjusted margin to prevent overlap with fixed header */
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures all images are the same size */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Animation for text overlay */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    animation: fadeInUp 1s ease-in-out; /* Added animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.text-overlay h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.text-overlay p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    background-color: rgb(255, 165, 0);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #e68a00;
+}
+
+/* Slide navigation arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 2rem;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Swipe functionality */
+@media (max-width: 768px) {
+    .slider {
+        touch-action: pan-y;
+    }
+}
+
+/* Featured Products */
+.featured-products {
+
+    padding: 2rem;
+    text-align: center;
+    
+}
+
+.product-grid {
+    display: flex;
+    box-sizing: border-box;
+    border: 8px solid rgb(255, 165, 0);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 50px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+.product-item {
+    background-color: #f5f5f5;
+    flex: 1 1 calc(25% - 2rem);  /* Adjust to fit 4 items in a row */
+    max-width: calc(25% - 2rem);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    
+}
+
+.product-item img {
+    width: 100%;                /* Full width of the container */
+    height: px;              /* Fixed height */
+    object-fit: cover;          /* Ensures uniform size and aspect ratio */
+    border-radius: 0px;        /* Optional: rounded corners */
+}
+
+.product-item h3 {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.product-item p {
+    margin-bottom: 1rem;
+}
+
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.product-detail {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 123px auto 0; /* Margin top set to 123px */
+    padding: 0 20px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-images {
+    flex: 1;
+    margin-right: 50px;
+}
+
+.product-images img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.product-images img:hover {
+    transform: scale(1.05);
+}
+
+.thumbnails {
+    display: flex;
+    margin-top: 10px;
+}
+
+.thumbnails img {
+    width: 80px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.thumbnails img:hover {
+    border-color: #f39c12;
+}
+
+.product-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 1;
+    padding: 30px; /* Increased padding for a more spacious feel */
+    background-color: #fafafa;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increased shadow depth for more emphasis */
+    transition: transform 0.3s, box-shadow 0.3s; /* Added subtle animation for hover */
+}
+
+.product-info:hover {
+    transform: translateY(-5px); /* Hover effect: lifts the container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.product-info h1 {
+    font-size: 30px; /* Slightly larger font */
+    color: #333;
+    margin-bottom: 20px; /* Added space below the heading */
+}
+
+.price {
+    font-size: 60px; /* Slightly larger price text */
+
+    color: #e67e22;
+    margin-bottom: 15px; /* Added space below price */
+}
+
+.description {
+    font-size: 18px; /* Slightly larger for better readability */
+    color: #555;
+    margin-bottom: 20px; /* Added more space below description */
+    line-height: 1.8; /* Increased line spacing for better readability */
+}
+
+.product-info button {
+    padding: 12px 24px; /* Slightly larger button */
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px; /* More rounded corners for a modern look */
+    font-size: 18px; /* Increased font size for the button */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Added button hover effect */
+    margin-bottom: 20px; /* Space below the button */
+}
+
+.product-info button:hover {
+    background-color: #f39c12;
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.product-info p {
+    font-size: 17px; /* Slightly increased paragraph font size */
+    line-height: 1.8; /* Increased line height for readability */
+    color: #666;
+    margin-bottom: 20px; /* Space below each paragraph */
+}
+
+
+/* Long Description Section */
+.long-description {
+    margin-top: 50px;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.long-description h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.long-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Reviews Section */
+.reviews {
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.review h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.review p {
+    font-size: 16px;
+    color: #555;
+}
+
+.review p.stars {
+    font-size: 18px;
+    color: #f39c12;
+}
+
+
+/* Footer */
+
+/* Footer Styles */
+footer {
+    margin-top: 50px;
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #222;
+}
+
+.footer-container div {
+    flex: 1 1 200px; /* Ensures divs stack properly with minimum width */
+    margin-right: 20px;
+}
+
+.footer-logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.footer-logo p {
+    font-weight: bold;
+}
+
+.footer-logo address {
+    line-height: 1.8;
+}
+
+.footer-links ul,
+.footer-company ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links h3,
+.footer-company h3 {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-links ul li,
+.footer-company ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a,
+.footer-company ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-links ul li a:hover,
+.footer-company ul li a:hover {
+    color: #ffcc00;
+}
+
+.footer-follow h3 {
+    margin-bottom: 15px;
+}
+
+.footer-follow a {
+    color: #333;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.footer-follow a:hover {
+    color: #ffcc00;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.footer-bottom .trust-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Allow wrapping for trust icons */
+}
+
+.footer-bottom .trust-icons img {
+    height: 30px;
+    margin: 0 10px;
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom a {
+    color: #ffcc00;
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 1024px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center; /* Align content in the center for tablets */
+        text-align: center;
+    }
+
+    .footer-container div {
+        flex: 1 1 100%; /* Full width for each div */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Space between sections */
+    }
+    
+    .footer-logo img {
+        margin-bottom: 15px; /* Adjust logo spacing */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container div {
+        flex: 1 1 100%; /* Full width for each div */
+        text-align: center; /* Ensure content is centered */
+        margin-bottom: 20px; /* Space between sections */
+    }
+
+    .footer-bottom .trust-icons {
+        flex-wrap: wrap; /* Wrap trust icons for small screens */
+        justify-content: center; /* Center them */
+    }
+
+    .footer-bottom .trust-icons img {
+        height: 25px; /* Smaller size on mobile */
+        margin: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        padding: 0 10px; /* Reduce padding on small screens */
+    }
+
+    .footer-container div {
+        flex: 1 1 100%; /* Full width for each section */
+        text-align: center; /* Align content in center */
+    }
+
+    .footer-follow {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container div {
+        flex: 1 1 100%; /* Ensure full width on very small screens */
+        margin-bottom: 20px;
+        text-align: center; /* Center text for small screens */
+    }
+
+    .footer-bottom .trust-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-bottom .trust-icons img {
+        height: 25px;
+        margin: 5px;
+    }
+}
